@@ -1,3 +1,24 @@
+# Clone YOLOv5 repository
+
+!rm -rf yolov5
+
+!git clone https://github.com/ultralytics/yolov5
+
+%cd yolov5
+
+Note:
+
+!git reset --hard 886f1c03d839575afecb059accf74296fad395b6
+
+Patched to work in CNN Mosquito Detection, 
+Notebook adapted from "C:\Repositories\CNN-Mosquito-Detection\CNN Training\YOLOV5(Version-2)-YOLOv5.ipynb"
+
+Temporarily public so I can clone from a Google Colab notebook.
+
+If you are looking here, you probably <b>should</b> be looking at the original at https://github.com/ultralytics/yolov5
+
+<hr></hr>
+
 <a href="https://apps.apple.com/app/id1452689527" target="_blank">
 <img src="https://user-images.githubusercontent.com/26833433/98699617-a1595a00-2377-11eb-8145-fc674eb9b1a7.jpg" width="1000"></a>
 &nbsp
