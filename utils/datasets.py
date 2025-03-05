@@ -101,6 +101,8 @@ class InfiniteDataLoader(torch.utils.data.dataloader.DataLoader):
 
     def __iter__(self):
         for i in range(len(self)):
+            # GC mod:
+            print(f'InfiniteDataLoader: i = {i} of {len(self)}')
             yield next(self.iterator)
 
 
