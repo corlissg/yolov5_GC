@@ -102,7 +102,7 @@ class InfiniteDataLoader(torch.utils.data.dataloader.DataLoader):
     def __iter__(self):
         for i in range(len(self)):
             # GC mod:
-            print(f'InfiniteDataLoader: i = {i} of {len(self)}')
+            # print(f'InfiniteDataLoader l 105: i = {i} of {len(self)}')
             yield next(self.iterator)
 
 
@@ -642,7 +642,9 @@ def augment_hsv(img, hgain=0.5, sgain=0.5, vgain=0.5):
     hue, sat, val = cv2.split(cv2.cvtColor(img, cv2.COLOR_BGR2HSV))
     dtype = img.dtype  # uint8
 
-    x = np.arange(0, 256, dtype=int16)
+    # GC mod:
+    # x = np.arange(0, 256, dtype=int16)
+    x = np.arange(0, 256, dtype=int)
     lut_hue = ((x * r[0]) % 180).astype(dtype)
     lut_sat = np.clip(x * r[1], 0, 255).astype(dtype)
     lut_val = np.clip(x * r[2], 0, 255).astype(dtype)
