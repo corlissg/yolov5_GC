@@ -212,7 +212,7 @@ class ComputeLoss:
             # Append
             a = t[:, 6].long()  # anchor indices
             # GC debug:
-            print(f'In utils/loss.py, line 211 gj.clamp: {type(gj.clamp_(0, gain[3] - 1))}')
+            print(f'In utils/loss.py, line 211 gj: {type(gj)}')
             
             indices.append((b, a, gj.clamp_(0, gain[3] - 1), gi.clamp_(0, gain[2] - 1)))  # image, anchor, grid indices
             tbox.append(torch.cat((gxy - gij, gwh), 1))  # box
