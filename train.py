@@ -297,6 +297,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
                 # GC Diagnostic:
                 print('In train.py", line 297, in train')
                 
+
                 loss, loss_items = compute_loss(pred, targets.to(device))  # loss scaled by batch_size
                 if rank != -1:
                     loss *= opt.world_size  # gradient averaged between devices in DDP mode
