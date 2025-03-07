@@ -114,6 +114,9 @@ class ComputeLoss:
     def __call__(self, p, targets):  # predictions, targets, model
         device = targets.device
         lcls, lbox, lobj = torch.zeros(1, device=device), torch.zeros(1, device=device), torch.zeros(1, device=device)
+        # GC debug:
+        print(f'In utils/loss.py, line 117, p: {type(p)}')
+        
         tcls, tbox, indices, anchors = self.build_targets(p, targets)  # targets
 
         # Losses
@@ -208,6 +211,9 @@ class ComputeLoss:
 
             # Append
             a = t[:, 6].long()  # anchor indices
+            # GC debug:
+            print(f'In utils/loss.py, line 211 gj.clamp: {type(gj.clamp_(0, gain[3] - 1))}')
+            
             indices.append((b, a, gj.clamp_(0, gain[3] - 1), gi.clamp_(0, gain[2] - 1)))  # image, anchor, grid indices
             tbox.append(torch.cat((gxy - gij, gwh), 1))  # box
             anch.append(anchors[a])  # anchors
